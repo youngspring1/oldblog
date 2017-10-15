@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R语言笔记 on 行行重行行</title>
+    <link>http://youngspring1.github.io/categories/r%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in R语言笔记 on 行行重行行</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright (c) 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 Jun 2016 09:10:39 +0800</lastBuildDate>
+    <atom:link href="http://youngspring1.github.io/categories/r%E8%AF%AD%E8%A8%80%E7%AC%94%E8%AE%B0/feed/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>R语言笔记10－数据收集</title>
+      <link>http://youngspring1.github.io/post/2016/2016-06-20-R10/</link>
+      <pubDate>Mon, 20 Jun 2016 09:10:39 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-06-20-R10/</guid>
+      <description>
+
+&lt;p&gt;汇总了一下，MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 里面，收集到的数据，以及它们的来源。&lt;br /&gt;
+你也可以在 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/a36e4c3815534ee5965d96974a0ec06a/&#34;&gt;这个页面&lt;/a&gt; 下载到所有跟课程相关的CSV数据、课件、R脚本。&lt;/p&gt;
+
+&lt;h3 id=&#34;unit1:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit1&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;WHO的世界健康数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/WHO.csv&#34;&gt;WHO.csv&lt;/a&gt;&lt;br /&gt;
+来自 &lt;a href=&#34;http://apps.who.int/gho/data/node.main&#34;&gt;Global Health Observatory Data Repository&lt;/a&gt;&lt;br /&gt;
+可以按照主题、分类、指标、国家来获取。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;USDA的食物数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/USDA.csv&#34;&gt;USDA.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;https://ndb.nal.usda.gov&#34;&gt;USDA National Nutrient Database for Standard Reference&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;芝加哥的犯罪数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/mvtWeek1.csv&#34;&gt;mvtWeek1.csv&lt;/a&gt;&lt;br /&gt;
+数据由FBI统计，由&lt;a href=&#34;https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2&#34;&gt;cityofchicago&lt;/a&gt;公开&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;New York Stock Exchange (NYSE)的股价数据&lt;br /&gt;
+IBM历史股价 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/IBMStock.csv&#34;&gt;IBMStock.csv&lt;/a&gt;&lt;br /&gt;
+通用电气历史股价 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/GEStock.csv&#34;&gt;GEStock.csv&lt;/a&gt;&lt;br /&gt;
+宝洁历史股价 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/ProcterGambleStock.csv&#34;&gt;ProcterGambleStock.csv&lt;/a&gt;&lt;br /&gt;
+可口可乐历史股价 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/CocaColaStock.csv&#34;&gt;CocaColaStock.csv&lt;/a&gt;&lt;br /&gt;
+波恩历史股价 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/BoeingStock.csv&#34;&gt;BoeingStock.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://www.infochimps.com&#34;&gt;infochimps&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;美国人口普查数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/CPSData.csv&#34;&gt;CPSData.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://thedataweb.rm.census.gov/ftp/cps_ftp.html&#34;&gt;Current Population Survey (CPS)&lt;/a&gt;&lt;br /&gt;
+另付CPSData里面的地区代码 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/MetroAreaCodes.csv&#34;&gt;MetroAreaCodes.csv&lt;/a&gt; 和 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/CountryCodes.csv&#34;&gt;CountryCodes.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;unit2:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit2&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;影响酒价格的因素&lt;br /&gt;
+&lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/wine.csv&#34;&gt;wine.csv&lt;/a&gt; 和 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/wine_test.csv&#34;&gt;wine_test.csv&lt;/a&gt;&lt;br /&gt;
+来自研究论文 &lt;a href=&#34;http://www.liquidasset.com/winedata.html&#34;&gt;Liquid Assets&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;棒球比赛数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/baseball.csv&#34;&gt;baseball.csv&lt;/a&gt;&lt;br /&gt;
+来自 &lt;a href=&#34;http://www.baseball-reference.com&#34;&gt;baseball-reference&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;篮球比赛数据&lt;br /&gt;
+&lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/NBA_train.csv&#34;&gt;NBA_train.csv&lt;/a&gt; 和 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/NBA_test.csv&#34;&gt;NBA_test.csv&lt;/a&gt;&lt;br /&gt;
+来自 &lt;a href=&#34;http://www.basketball-reference.com&#34;&gt;basketball-reference&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1983-2008全球气候变化状况 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/climate_change.csv&#34;&gt;climate_change.csv&lt;/a&gt;&lt;br /&gt;
+其中，温度(Temp)数据来自 &lt;a href=&#34;http://www.cru.uea.ac.uk/cru/data/temperature/&#34;&gt;Climatic Research Unit at the University of East Anglia&lt;/a&gt;&lt;br /&gt;
+大气成分(CO2, N2O, CH4, CFC.11, CFC.12)数据来自 &lt;a href=&#34;http://www.esrl.noaa.gov/gmd/ccgg/data-products.html&#34;&gt;ESRL/NOAA Global Monitoring Division&lt;/a&gt;&lt;br /&gt;
+颗粒物(Aerosols)数据来自 &lt;a href=&#34;http://data.giss.nasa.gov/modelforce/strataer/&#34;&gt;Godard Institute for Space Studies at NASA&lt;/a&gt;&lt;br /&gt;
+TSI(total solar irradiance)数据来自 &lt;a href=&#34;http://solarisheppa.geomar.de/solarisheppa/cmip5&#34;&gt;SOLARIS-HEPPA project website&lt;/a&gt;&lt;br /&gt;
+multivariate El Nino Southern Oscillation index (MEI)数据来自 &lt;a href=&#34;http://www.esrl.noaa.gov/psd/enso/mei/table.html&#34;&gt;ESRL/NOAA Physical Sciences Division&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The Programme for International Student Assessment (PISA)国际留学生评价程序&lt;br /&gt;
+&lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/pisa2009train.csv&#34;&gt;pisa2009train.csv&lt;/a&gt; 和 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/pisa2009test.csv&#34;&gt;pisa2009test.csv&lt;/a&gt;&lt;br /&gt;
+这些数据来自美国国家教育统计中心的文件 &lt;a href=&#34;http://nces.ed.gov/pubsearch/pubsinfo.asp?pubid=2011038&#34;&gt;2009 PISA Public-Use Data Files&lt;/a&gt;。&lt;br /&gt;
+注意，使用这些数据的时候，你要遵守 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/NCES_Data_Use_Agreement.txt&#34;&gt; NCES data use agreement&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;流感趋势数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/FluTrain.csv&#34;&gt;FluTrain.csv&lt;/a&gt;&lt;br /&gt;
+我们可以使用 &lt;a href=&#34;http://www.google.com/trends/&#34;&gt;Google Trends&lt;/a&gt; 来观察人们都在搜索什么内容。如果搜索流感信息的人很多，那么可能就要爆发流感啦！是否真的爆发流感呢，&lt;a href=&#34;http://www.cdc.gov/flu/weekly/fluactivitysurv.htm&#34;&gt;U.S. Centers for Disease Control and Prevention&lt;/a&gt;会公开influenza-like illness (ILI)这样的信息。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;美国各州信息&lt;br /&gt;
+&lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/statedata.csv&#34;&gt;statedata.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;现代汽车 Hyundai Elantra 在美国的销售状况&lt;br /&gt;
+&lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/elantra.csv&#34;&gt;elantra.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;unit3:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit3&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;病人信息 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/framingham.csv&#34;&gt;framingham.csv&lt;/a&gt;&lt;br /&gt;
+数据来自这项研究 &lt;a href=&#34;https://biolincc.nhlbi.nih.gov/static/studies/teaching/framdoc.pdf&#34;&gt;BioLINCC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;总统大选数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/PollingData.csv&#34;&gt;PollingData.csv&lt;/a&gt;&lt;br /&gt;
+上面的CSV可能有些问题，你也许想使用这份处理过后的 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/PollingData_Imputed.csv&#34;&gt;PollingData_Imputed.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://www.realclearpolitics.com&#34;&gt;RealClearPolitics&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;流行歌曲数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/songs.csv&#34;&gt;songs.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;https://en.wikipedia.org/wiki/Billboard_Hot_100&#34;&gt;Wikipedia&lt;/a&gt;, &lt;a href=&#34;http://www.billboard.com&#34;&gt;Billboard.com&lt;/a&gt;, 和 &lt;a href=&#34;http://echonest.com&#34;&gt;EchoNest&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;罪犯假释数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/parole.csv&#34;&gt;parole.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://www.icpsr.umich.edu/icpsrweb/NACJD/series/38/studies/26521?archive=NACJD&amp;amp;sortBy=7&#34;&gt;United States 2004 National Corrections Reporting Program&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;借款人信用数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/loans.csv&#34;&gt;loans.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;https://www.lendingclub.com/info/download-data.action&#34;&gt;LendingClub&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;unit4:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit4&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;美国最高法院斯蒂文森大法官判例数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/stevens.csv&#34;&gt;stevens.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://wusct.wustl.edu/data.php&#34;&gt;Supreme Court Forecasting Project&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;病人信息 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/ClaimsData.csv.zip&#34;&gt;ClaimsData.csv.zip&lt;/a&gt;（这个有点大，解压后17M，慎重下载）&lt;br /&gt;
+数据来自 &lt;a href=&#34;https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/SynPUFs/DE_Syn_PUF.html&#34;&gt;DE-SynPUF dataset&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;波士顿房价数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/boston.csv&#34;&gt;boston.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://archive.ics.uci.edu/ml/datasets/Housing&#34;&gt;UCI Machine Learning Repository&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;投票动机数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/gerber.csv&#34;&gt;gerber.csv&lt;/a&gt;&lt;br /&gt;
+数据来自研究项目 &lt;a href=&#34;http://web.calstatela.edu/faculty/blawson/gerber%20green%20larimer%202008.pdf&#34;&gt;2008 research paper&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;字母识别数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/letters_ABPR.csv&#34;&gt;letters_ABPR.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://archive.ics.uci.edu/ml/datasets/Letter+Recognition&#34;&gt;UCI Machine Learning Repository&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;人口普查数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/census.csv&#34;&gt;census.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://archive.ics.uci.edu/ml/datasets/Adult&#34;&gt;UCI Machine Learning Repository&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;unit5:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit5&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;邮件数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/energy_bids.csv&#34;&gt;energy_bids.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://trec-legal.umiacs.umd.edu&#34;&gt;TREC Legal Track&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;wiki页面&lt;a href=&#34;https://en.wikipedia.org/wiki/Language&#34;&gt;Language&lt;/a&gt;的编辑日志 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/wiki.csv&#34;&gt;wiki.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;医院处方数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/clinical_trial.csv&#34;&gt;clinical_trial.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://www.ncbi.nlm.nih.gov/pubmed&#34;&gt;Pubmed&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;垃圾邮件数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/emails.csv&#34;&gt;emails.csv&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;unit6:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit6&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://files.grouplens.org/datasets/movielens/ml-100k/u.item&#34;&gt;电影信息页面&lt;/a&gt;&lt;br /&gt;
+你需要自己保存和解析。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;单词出现频率数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/dailykos.csv&#34;&gt;dailykos.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;https://www.dailykos.com&#34;&gt;Daily Kos&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;航空旅客里程数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/AirlinesCluster.csv&#34;&gt;AirlinesCluster.csv&lt;/a&gt;&lt;br /&gt;
+数据来自书籍 &lt;a href=&#34;http://www.dataminingbook.com&#34;&gt;Data Mining for Business Intelligence&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;股票涨跌数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/StocksCluster.csv&#34;&gt;StocksCluster.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://www.infochimps.com/datasets/nasdaq-exchange-daily-1970-2010-open-close-high-low-and-volume&#34;&gt;infochimps&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;unit7:7d081d68d33a6cb2f2159d016a647e43&#34;&gt;Unit7&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;罪犯地点数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/mvt.csv&#34;&gt;mvt.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://gis.chicagopolice.org&#34;&gt;芝加哥警察局&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;谋杀案件数据 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/murders.csv&#34;&gt;murders.csv&lt;/a&gt;&lt;br /&gt;
+数据由FBI统计，公开于&lt;a href=&#34;https://en.wikipedia.org/wiki/Gun_violence_in_the_United_States_by_state&#34;&gt;WIKI&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;MIT留学生信息 &lt;a href=&#34;https://d37djvu3ytnwxt.cloudfront.net/asset-v1:MITx+15.071x_3+1T2016+type@asset+block/intlall.csv&#34;&gt;intlall.csv&lt;/a&gt;&lt;br /&gt;
+数据来自 &lt;a href=&#34;http://web.mit.edu/iso/&#34;&gt;MIT International Students Office&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记09－整数优化</title>
+      <link>http://youngspring1.github.io/post/2016/2016-06-20-R09/</link>
+      <pubDate>Mon, 20 Jun 2016 09:10:24 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-06-20-R09/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第九单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;integer-optimization:2434367f671f708106a85f2a67d5fdf5&#34;&gt;Integer Optimization&lt;/h2&gt;
+
+&lt;p&gt;第九单元的主题是整数优化。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:2434367f671f708106a85f2a67d5fdf5&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;h4 id=&#34;整数优化:2434367f671f708106a85f2a67d5fdf5&#34;&gt;整数优化&lt;/h4&gt;
+
+&lt;p&gt;整数优化，即所有解都是整数。&lt;br /&gt;
+它们有可能是0或者1。这适用于回答是Yes／No的情况。&lt;br /&gt;
+它们有可能是1，2，3……这适用于回答是具体的数值的情况。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-实战:2434367f671f708106a85f2a67d5fdf5&#34;&gt;2.实战&lt;/h3&gt;
+
+&lt;p&gt;做法和线性优化是一样的。只是在条件里面要加一个Integer／Binary的限制。所以就不细讲了。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记08－线性优化</title>
+      <link>http://youngspring1.github.io/post/2016/2016-06-19-R08/</link>
+      <pubDate>Sun, 19 Jun 2016 09:28:58 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-06-19-R08/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第八单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;linear-optimization:b27ba36c9adad52060ae60e72a6ed77d&#34;&gt;Linear Optimization&lt;/h2&gt;
+
+&lt;p&gt;第八单元的主题是线性优化。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:b27ba36c9adad52060ae60e72a6ed77d&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;h4 id=&#34;线性优化:b27ba36c9adad52060ae60e72a6ed77d&#34;&gt;线性优化&lt;/h4&gt;
+
+&lt;p&gt;线性优化，其实是用Excel／LibreOffice求解一个简单的多元1次多项式的最大值。&lt;br /&gt;
+使用LibreOffice是这样做的：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在单元格中填写多项式和约束条件。&lt;/li&gt;
+&lt;li&gt;选取Tools-&amp;gt;Solver，指定多项式，以及各种约束条件，当然也要选择［Linear Solver］这个方法。&lt;/li&gt;
+&lt;li&gt;点击［Solve］就可以得到结果啦。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在Excel中，需要在&lt;code&gt;option&lt;/code&gt; - &lt;code&gt;addin&lt;/code&gt; - &lt;code&gt;Excel addin&lt;/code&gt; 选择加载&lt;code&gt;solver addin&lt;/code&gt;，这样才会在data菜单栏中显示出&lt;code&gt;solver&lt;/code&gt;按钮。&lt;/p&gt;
+
+&lt;h4 id=&#34;sensitivity-analysis:b27ba36c9adad52060ae60e72a6ed77d&#34;&gt;sensitivity analysis&lt;/h4&gt;
+
+&lt;p&gt;sensitivity analysis用来展示，结果是如何随数据（变量／约束条件）的变化而变化的。&lt;br /&gt;
+shadow prices：表示当需求增加时，将（总量增加量／需求增量）的值定义为影子价格。&lt;br /&gt;
+&lt;img src=&#34;http://7xrjai.com1.z0.glb.clouddn.com/20160624-R08-sensitive.png&#34; alt=&#34;sensitivity analysis&#34; /&gt;
+如图，纵坐标和横坐标表示两种不同的需求。暗红色阴影表示可能的取值范围。&lt;br /&gt;
+如果不断提高需求R，从100到125到150，影子价格都保持不变；但是如果需求提高到170，影子价格就会发生变化。&lt;br /&gt;
+如果不短提高需求D，从150到100，影子价格都为0，总量也不变。&lt;/p&gt;
+
+&lt;p&gt;影子价格有可能在需求增加的一个范围内保持不变。也有可能一直为0。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-实战:b27ba36c9adad52060ae60e72a6ed77d&#34;&gt;2.实战&lt;/h3&gt;
+
+&lt;p&gt;当然，用R也能解决这样的问题。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 先安装pkg
+install.packages(&amp;quot;lpSolveAPI&amp;quot;)
+library(lpSolveAPI)
+
+# 创建模型
+# 说明：
+# 第一个参数是约束条件的个数。
+# one capacity constraint: 载客量有一个最大值（飞机座位数）
+# two demand constraints : 每种票价的数目（regular seats／discount seats）都有一个最大值
+# 所以这个参数的取值是3
+# 第二个参数是变量的个数。
+# decision variables : 我们有两种票价（regular seats／discount seats）
+# 所以这个参数的取值是2
+
+AirlineSimple = make.lp(3,2)
+# 创建出来的AirlineSimple是这样子的：
+Model name: 
+            C1    C2         
+Minimize     0     0         
+R1           0     0  free  0
+R2           0     0  free  0
+R3           0     0  free  0
+Kind       Std   Std         
+Type      Real  Real         
+Upper      Inf   Inf         
+Lower        0     0         
+
+# 那下面我们就来指定多项式和约束条件
+# 最终的效果是这样的：
+# max         617*R + 238*D
+# subject to    1*R +   1*D &amp;lt;= 166
+#               1*R +   0*D &amp;lt;= 100
+#               0*R +   1*D &amp;lt;= 150  
+
+# 特别注意：执行顺序，set.objfn()不能放在前面，我被坑了。。。
+# 指定约束条件（跟效果竖着对比着看）
+set.column(AirlineSimple, 1, c(1,1,0))
+set.column(AirlineSimple, 2, c(1,0,1))
+set.constr.type(AirlineSimple, c(&amp;quot;&amp;lt;=&amp;quot;,&amp;quot;&amp;lt;=&amp;quot;,&amp;quot;&amp;lt;=&amp;quot;))
+set.rhs(AirlineSimple, c(166,100,150))
+# 指定两个变量的参数
+set.objfn(AirlineSimple, c(617,238))
+# 默认的是最小值，我们改为最大值
+lp.control(AirlineSimple,sense=&#39;max&#39;)
+
+# 这样就创建好了：
+Model name: 
+            C1    C2         
+Maximize   617   238         
+R1           1     1  &amp;lt;=  166
+R2           1     0  &amp;lt;=  100
+R3           0     1  &amp;lt;=  150
+Kind       Std   Std         
+Type      Real  Real         
+Upper      Inf   Inf         
+Lower        0     0
+
+# 变量的取值是上面最后两行Upper和Lower，可以通过函数set.bounds()来修改
+
+# 现在可以来运行了
+# 如果正确运行，返回值是0
+solve(AirlineSimple)
+# 查看取得的最大值
+get.objective(AirlineSimple)
+# 查看取最大值时，两个变量的取值
+get.variables(AirlineSimple)
+
+# JFK 从DFW中转，到LAX的场景
+# 有8个约束条件，6个变量：
+AirlineConnecting = make.lp(8,6)
+set.column(AirlineConnecting, 1, c(1,1,1,0,0,0,0,0))
+set.column(AirlineConnecting, 2, c(1,1,0,1,0,0,0,0))
+set.column(AirlineConnecting, 3, c(1,0,0,0,1,0,0,0))
+set.column(AirlineConnecting, 4, c(1,0,0,0,0,1,0,0))
+set.column(AirlineConnecting, 5, c(0,1,0,0,0,0,1,0))
+set.column(AirlineConnecting, 6, c(0,1,0,0,0,0,0,1))
+set.constr.type(AirlineConnecting, rep(&amp;quot;&amp;lt;=&amp;quot;,8))
+set.rhs(AirlineConnecting, c(166,166,80,120,75,100,60,110))
+set.objfn(AirlineConnecting, c(428,190,642,224,512,190))
+lp.control(AirlineConnecting,sense=&#39;max&#39;)
+
+# 模型稍微有点大
+Model name: 
+        C1    C2    C3    C4    C5    C6         
+Maximize   428   190   642   224   512   190         
+R1           1     1     1     1     0     0  &amp;lt;=  166
+R2           1     1     0     0     1     1  &amp;lt;=  166
+R3           1     0     0     0     0     0  &amp;lt;=   80
+R4           0     1     0     0     0     0  &amp;lt;=  120
+R5           0     0     1     0     0     0  &amp;lt;=   75
+R6           0     0     0     1     0     0  &amp;lt;=  100
+R7           0     0     0     0     1     0  &amp;lt;=   60
+R8           0     0     0     0     0     1  &amp;lt;=  110
+Kind       Std   Std   Std   Std   Std   Std         
+Type      Real  Real  Real  Real  Real  Real         
+Upper      Inf   Inf   Inf   Inf   Inf   Inf         
+Lower        0     0     0     0     0     0
+
+solve(AirlineConnecting)
+get.objective(AirlineConnecting)
+get.variables(AirlineConnecting)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记07－可视化</title>
+      <link>http://youngspring1.github.io/post/2016/2016-05-24-R07/</link>
+      <pubDate>Tue, 24 May 2016 09:18:29 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-05-24-R07/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第七单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;visualization:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;Visualization&lt;/h2&gt;
+
+&lt;p&gt;第七单元的主题是可视化。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-简介:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;1.简介&lt;/h3&gt;
+
+&lt;p&gt;plot和ggplot2的比较&lt;br /&gt;
+plot：只有简单的点和线，不容易添加其他元素。&lt;br /&gt;
+ggplot2：引入图层，很容易添加其他元素&lt;/p&gt;
+
+&lt;h4 id=&#34;ggplot2:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;ggplot2&lt;/h4&gt;
+
+&lt;p&gt;ggplot2三要素：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Data&lt;br /&gt;
+数据，使用data.frame。&lt;/li&gt;
+&lt;li&gt;Aesthetic mapping&lt;br /&gt;
+指定如何将 data.frame里的变量映射到图形属性上。比如，颜色，形状，比例，x／y坐标，分组等等。&lt;/li&gt;
+&lt;li&gt;Geometric objects&lt;br /&gt;
+决定数据以什么样的形式显示。比如，点，线，箱线图，条形图，多边形等等。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;结合下面这条命令，参数WHO就是提供数据的data.frame，参数aes()就是Aesthetic mapping，后面用加号连结的类似geom_point()就是Geometric objects。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 形式
+# ggplot(data = NULL, mapping = aes(), ..., environment = parent.frame())
+# 例子
+ggplot(WHO, aes(x = GNI, y = FertilityRate, color = Region)) + geom_point()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ase()即可以作为ggplot()的参数，又可以作为geom_XXXX()的参数&lt;/p&gt;
+
+&lt;h4 id=&#34;aesthetic-mapping:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;Aesthetic mapping&lt;/h4&gt;
+
+&lt;p&gt;坐标相关&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;aes(x, y, xmin, xmax, ymin, ymax, xend, yend)
+# 当然就是x，y坐标分别指定data.frame的某一列
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：坐标相关的，一般作为ggplot()的参数，其他的都可以作为geom()的参数。&lt;/p&gt;
+
+&lt;h4 id=&#34;geometric-objects:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;Geometric objects&lt;/h4&gt;
+
+&lt;p&gt;颜色相关&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;aes(colour, fill, alpha)
+# colour 颜色
+# fill   填充指标，data.frame的某一列。也类似于分类，比如该列有两个因子，那么会用两种不同的颜色填充
+# alpha  透明度，0到1之间的小数
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分组相关&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;aes(group)
+# group 分组指标，可以指定为1，那所有数据都在1组。也可以指定data.frame的某一列
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;形态相关&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;aes(linetype, size, shape)
+# linetype 即lty，线段的类型
+# size     点的大小，线的粗细。指定整数数值。
+# shape    图形的类型
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;图形的类型，即geom_point(shape = n)中n的取值&lt;br /&gt;
+&lt;img src=&#34;http://7xrjai.com1.z0.glb.clouddn.com/20160524-shapes.png&#34; alt=&#34;shapes&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;线段的类型，即geom_point(lty = n)中n的取值&lt;br /&gt;
+&lt;img src=&#34;http://7xrjai.com1.z0.glb.clouddn.com/20160524-line-types.png&#34; alt=&#34;line-types&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;描绘形状&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;geom_point()  点
+geom_line()   线
+geom_tile()   条形图
+geom_bar()    直方图
+geom_ploygen()多边形
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：&lt;br /&gt;
+binwidth = 5 :粒度？&lt;br /&gt;
+geom_bar(stat=&amp;ldquo;identity&amp;rdquo;) :use the value of the y variable as is&lt;br /&gt;
+geom_histogram(position = &amp;ldquo;identity&amp;rdquo;) :not to stack the histograms&lt;/p&gt;
+
+&lt;h3 id=&#34;2-实战:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;2.实战&lt;/h3&gt;
+
+&lt;h4 id=&#34;绘图:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;绘图&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Read in data
+WHO = read.csv(&amp;quot;WHO.csv&amp;quot;)
+str(WHO)
+
+# Plot from Week 1
+plot(WHO$GNI, WHO$FertilityRate)
+
+# Let&#39;s redo this using ggplot 
+# Install and load the ggplot2 library:
+install.packages(&amp;quot;ggplot2&amp;quot;)
+library(ggplot2)
+
+# Create the ggplot object with the data and the aesthetic mapping:
+scatterplot = ggplot(WHO, aes(x = GNI, y = FertilityRate))
+
+# Add the geom_point geometry
+scatterplot + geom_point()
+
+# Make a line graph instead:
+scatterplot + geom_line()
+
+# Switch back to our points:
+scatterplot + geom_point()
+
+# Redo the plot with blue triangles instead of circles:
+scatterplot + geom_point(color = &amp;quot;blue&amp;quot;, size = 3, shape = 17) 
+
+# Another option:
+scatterplot + geom_point(color = &amp;quot;darkred&amp;quot;, size = 3, shape = 8) 
+
+# Add a title to the plot:
+scatterplot + geom_point(colour = &amp;quot;blue&amp;quot;, size = 3, shape = 17) + ggtitle(&amp;quot;Fertility Rate vs. Gross National Income&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;分组:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;分组&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# 因子，以颜色区分  
+# Color the points by region: 
+ggplot(WHO, aes(x = GNI, y = FertilityRate, color = Region)) + geom_point()
+
+# 数值，以颜色深浅区分
+# Color the points according to life expectancy:
+ggplot(WHO, aes(x = GNI, y = FertilityRate, color = LifeExpectancy)) + geom_point()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;拟合:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;拟合&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Is the fertility rate of a country was a good predictor of the percentage of the population under 15?
+ggplot(WHO, aes(x = FertilityRate, y = Under15)) + geom_point()
+
+# Let&#39;s try a log transformation:
+ggplot(WHO, aes(x = log(FertilityRate), y = Under15)) + geom_point()
+
+# Simple linear regression model to predict the percentage of the population under 15, using the log of the fertility rate:
+mod = lm(Under15 ~ log(FertilityRate), data = WHO)
+summary(mod)
+
+# Add this regression line to our plot:
+ggplot(WHO, aes(x = log(FertilityRate), y = Under15)) + geom_point() +  stat_smooth(method = &amp;quot;lm&amp;quot;)
+
+# 99% confidence interval
+ggplot(WHO, aes(x = log(FertilityRate), y = Under15)) + geom_point() + stat_smooth(method = &amp;quot;lm&amp;quot;, level = 0.99)
+
+# No confidence interval in the plot
+ggplot(WHO, aes(x = log(FertilityRate), y = Under15)) + geom_point() + stat_smooth(method = &amp;quot;lm&amp;quot;, se = FALSE)
+
+# Change the color of the regression line:
+ggplot(WHO, aes(x = log(FertilityRate), y = Under15)) + geom_point() + stat_smooth(method = &amp;quot;lm&amp;quot;, colour = &amp;quot;orange&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;热力图:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;热力图&lt;/h4&gt;
+
+&lt;p&gt;热力图（数据越多颜色越深）的效果，依靠scale_fill_gradient()来实现，可以通过low和high指定深浅区域的颜色，然后自动形成渐变效果。旁边的图例通过参数guide = &amp;ldquo;legend&amp;rdquo;来指定。&lt;br /&gt;
+最终的命令如下，如何生成数据的，就不啰嗦了。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Change the color scheme
+ggplot(DayHourCounts, aes(x = Hour, y = Var1)) + geom_tile(aes(fill = Freq)) + scale_fill_gradient(name=&amp;quot;Total MV Thefts&amp;quot;, low=&amp;quot;white&amp;quot;, high=&amp;quot;red&amp;quot;) + theme(axis.title.y = element_blank())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;地理热力图:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;地理热力图&lt;/h4&gt;
+
+&lt;p&gt;顾名思义，地理热力图就是在地图上显示热力图。&lt;br /&gt;
+包map内置了美国地图、世界地图、法国地图、意大利地图等。地图的原理跟图片类似，图片就是按照某个粒度分成很多个像素点，然后保存像素点的颜色信息；地图就是按照经纬度分成很多点，保存每个点的信息（比如这个点位于哪个州，这样就形成一个美国地图）。
+对比刚才的 ggplot() + geom_tile() + scale_fill_gradient()&lt;br /&gt;
+我们现在使用 ggmap() + geom_point() + scale_fill_gradient()&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Install and load two new packages:
+install.packages(&amp;quot;maps&amp;quot;)
+install.packages(&amp;quot;ggmap&amp;quot;)
+library(maps)
+library(ggmap)
+
+# Load a map of Chicago into R:
+chicago = get_map(location = &amp;quot;chicago&amp;quot;, zoom = 11)
+
+# Look at the map
+ggmap(chicago)
+
+# Plot the first 100 motor vehicle thefts:
+ggmap(chicago) + geom_point(data = mvt[1:100,], aes(x = Longitude, y = Latitude))
+
+# Round our latitude and longitude to 2 digits of accuracy, and create a crime counts data frame for each area:
+LatLonCounts = as.data.frame(table(round(mvt$Longitude,2), round(mvt$Latitude,2)))
+
+str(LatLonCounts)
+
+# Convert our Longitude and Latitude variable to numbers:
+LatLonCounts$Long = as.numeric(as.character(LatLonCounts$Var1))
+LatLonCounts$Lat = as.numeric(as.character(LatLonCounts$Var2))
+
+# Plot these points on our map:
+ggmap(chicago) + geom_point(data = LatLonCounts, aes(x = Long, y = Lat, color = Freq, size=Freq))
+
+# Change the color scheme:
+ggmap(chicago) + geom_point(data = LatLonCounts, aes(x = Long, y = Lat, color = Freq, size=Freq)) + scale_colour_gradient(low=&amp;quot;yellow&amp;quot;, high=&amp;quot;red&amp;quot;)
+
+# We can also use the geom_tile geometry
+ggmap(chicago) + geom_tile(data = LatLonCounts, aes(x = Long, y = Lat, alpha = Freq), fill=&amp;quot;red&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;云图:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;云图&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# 先准备下数据，我们需要很多单词。
+# 跟文本处理类似，依旧使用tweets推文，只是我们这次不抽取词干。
+library(tm)
+tweets = read.csv(&amp;quot;tweets.csv&amp;quot;, stringsAsFactors=FALSE)
+corpus = Corpus(VectorSource(tweets$Tweet))
+corpus = tm_map(corpus, tolower)
+corpus = tm_map(corpus, PlainTextDocument)
+corpus = tm_map(corpus, removePunctuation)
+corpus = tm_map(corpus, removeWords, stopwords(&amp;quot;english&amp;quot;))
+frequencies = DocumentTermMatrix(corpus)
+allTweets = as.data.frame(as.matrix(frequencies))
+
+# 我们需要的单词就是列名
+colnames(allTweets)
+# 我们需要的另一个指标是单词的频率
+colSums(allTweets)
+
+# 现在加载wordcloud这个包
+library(wordcloud)
+wordcloud(colnames(allTweets), colSums(allTweets), scale=c(2, .25))
+
+# 参数 scale 指定了文字的大小
+# scale=c(2, .25) 表示出现频率最高的单词，显示的字号为2，出现频率最小的单词，显示的字号为0.25
+wordcloud(colnames(allTweets), colSums(allTweets))
+# 等效于
+wordcloud(colnames(allTweets), colSums(allTweets), scale=c(4, 0.5))
+
+# min.freq
+# 只显示出现频率大于指定值的单词
+
+# max.words
+# 最多只显示指定数目的单词
+
+# random.order == FALSE
+# 最先显示出现频率最高的单词
+
+# rot.per = 0.5
+# 有一半的单词垂直显示。默认值是0.1。
+
+# random.color == TRUE
+# 使用随机颜色
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;颜色&lt;br /&gt;
+包RColorBrewer支持下面这些调色板，可以输入 display.brewer.all() 看到下面这张图。&lt;br /&gt;
+&lt;img src=&#34;http://7xrjai.com1.z0.glb.clouddn.com/20160606-brewer.all.png&#34; alt=&#34;brewer.all&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ibrary(RColorBrewer)
+display.brewer.all()
+
+# 像这样使用
+colors=brewer.pal(9, &amp;quot;Blues&amp;quot;)[5:9]
+wordcloud(colnames(allTweets), colSums(allTweets), colors)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;保存:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;保存&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Save our plot:
+fertilityGNIplot = scatterplot + geom_point(colour = &amp;quot;blue&amp;quot;, size = 3, shape = 17) + ggtitle(&amp;quot;Fertility Rate vs. Gross National Income&amp;quot;)
+pdf(&amp;quot;MyPlot.pdf&amp;quot;)
+print(fertilityGNIplot)
+dev.off()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;附录:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;附录&lt;/h3&gt;
+
+&lt;h6 id=&#34;r中星期的显示:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;R中星期的显示&lt;/h6&gt;
+
+&lt;p&gt;在中文系统上，weekdays()返回的结果是 “星期二 星期六 星期日 星期三 星期四 星期五 星期一”，如果希望输出的结果是“Friday    Monday  Saturday    Sunday  Thursday   Tuesday Wednesday”，应该怎么做？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Convert the Date variable to a format that R will recognize:
+mvt$Date = strptime(mvt$Date, format=&amp;quot;%m/%d/%y %H:%M&amp;quot;)
+mvt$Weekday = weekdays(mvt$Date)
+
+table(mvt$Weekday)
+星期二 星期六 星期日 星期三 星期四 星期五 星期一 
+26791  27118  26316  27416  27319  29284  27397 
+
+Sys.getlocale()
+&amp;quot;zh_CN.UTF-8/zh_CN.UTF-8/zh_CN.UTF-8/C/zh_CN.UTF-8/zh_CN.UTF-8&amp;quot;
+Sys.setlocale(&amp;quot;LC_TIME&amp;quot;, &amp;quot;en_US.UTF-8&amp;quot;)
+&amp;quot;en_US&amp;quot;
+Sys.getlocale()
+&amp;quot;zh_CN.UTF-8/zh_CN.UTF-8/zh_CN.UTF-8/C/en_US.UTF-8/zh_CN.UTF-8&amp;quot;
+
+table(mvt$Weekday)
+Friday    Monday  Saturday    Sunday  Thursday   Tuesday Wednesday 
+29284     27397     27118     26316     27319     26791     27416
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;另外注意到，不管是中文还是英文，都是按照字母表顺序排列的，不是按照实际中有意义的顺序排列的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;WeekdayCounts = as.data.frame(table(mvt$Weekday))
+WeekdayCounts$Var1 = factor(WeekdayCounts$Var1, ordered=TRUE, levels=c(&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;,&amp;quot;Saturday&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;factor转数字:8f9383a8559e56d2b013b78edf4886b3&#34;&gt;factor转数字&lt;/h6&gt;
+
+&lt;p&gt;先把factor转成character，再转成数字&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Convert the second variable, Var2, to numbers and call it Hour:
+DayHourCounts$Hour = as.numeric(as.character(DayHourCounts$Var2))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;参考：&lt;br /&gt;
+&lt;a href=&#34;http://www.cookbook-r.com/Graphs/Shapes_and_line_types/&#34;&gt;形状和线段的类型&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;http://www.cookbook-r.com/Graphs/Colors_(ggplot2)&#34;&gt;颜色&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记06－集群</title>
+      <link>http://youngspring1.github.io/post/2016/2016-05-18-R06/</link>
+      <pubDate>Wed, 18 May 2016 16:40:09 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-05-18-R06/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第六单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;clustering:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;Clustering&lt;/h2&gt;
+
+&lt;p&gt;第六单元的主题是集群。它用来找到数据内的相似性。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;h4 id=&#34;recommendation-systems:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;Recommendation Systems&lt;/h4&gt;
+
+&lt;p&gt;Collaborative filtering:&lt;br /&gt;
+过滤出用户间的共同特征／相似性。只使用了用户信息，跟电影内容本身无关。&lt;/p&gt;
+
+&lt;p&gt;Content filtering:&lt;br /&gt;
+利用电影本身的信息，过滤出有共同导演／演员／类别的电影。跟其他用户无关。&lt;/p&gt;
+
+&lt;h4 id=&#34;clustering-1:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;clustering&lt;/h4&gt;
+
+&lt;p&gt;clustering 集群是一种非监督学习，&amp;rdquo;unsupervised learning&amp;rdquo;，将有共同特征的数据分在同一组。&lt;/p&gt;
+
+&lt;h6 id=&#34;hierarchical-clustering:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;Hierarchical clustering&lt;/h6&gt;
+
+&lt;p&gt;Hierarchical clustering的步骤：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;计算距离&lt;/li&gt;
+&lt;li&gt;生成集群&lt;/li&gt;
+&lt;li&gt;生成cutree&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;注意1:计算距离时，有可能造成内存溢出。计算每两点间的距离，得到的结果是n*(n-1)/2个，我们需要保存这个结果，如果n很大，保存结果的矩阵也很大，可能会导致内存溢出。&lt;br /&gt;
+注意2:计算距离的三种方法：&lt;br /&gt;
+Euclidean distance：点与点之间的欧几里得距离&lt;br /&gt;
+Manhattan Distance：绝对值之和&lt;br /&gt;
+Maximum Coordinate：偏离最严重的点&lt;/p&gt;
+
+&lt;h6 id=&#34;k-means-clustering:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;K-means clustering&lt;/h6&gt;
+
+&lt;p&gt;K-means clustering的步骤：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;指定集群数目k&lt;/li&gt;
+&lt;li&gt;随机分配所有的点&lt;/li&gt;
+&lt;li&gt;计算每个集群的中心点&lt;/li&gt;
+&lt;li&gt;计算每个点到这些中心点的距离，选择最近的，重新分配点到离他最近的集群&lt;/li&gt;
+&lt;li&gt;重新计算每个集群的中心点&lt;/li&gt;
+&lt;li&gt;重复4和5多次，直到没有提升&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;注意：centroid distance 集群中所有点的平均值间的距离。&lt;/p&gt;
+
+&lt;h4 id=&#34;normalize:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;normalize&lt;/h4&gt;
+
+&lt;p&gt;如果不同列的数值不是同样的数量级，那么运算后较小的值可能会被忽略，所以需要调整到同样的数量级。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;library(caret)
+preproc = preProcess(airlines)
+airlinesNorm = predict(preproc, airlines)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;效果就是，所有列的平均值都是0。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-建模和评估:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;2.建模和评估&lt;/h3&gt;
+
+&lt;h4 id=&#34;hierarchical-clustering-1:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;Hierarchical clustering&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# After following the steps in the video, load the data into R
+movies = read.table(&amp;quot;movieLens.txt&amp;quot;, header=FALSE, sep=&amp;quot;|&amp;quot;,quote=&amp;quot;\&amp;quot;&amp;quot;)
+# Add column names
+colnames(movies) = c(&amp;quot;ID&amp;quot;, &amp;quot;Title&amp;quot;, &amp;quot;ReleaseDate&amp;quot;, &amp;quot;VideoReleaseDate&amp;quot;, &amp;quot;IMDB&amp;quot;, &amp;quot;Unknown&amp;quot;, &amp;quot;Action&amp;quot;, &amp;quot;Adventure&amp;quot;, &amp;quot;Animation&amp;quot;, &amp;quot;Childrens&amp;quot;, &amp;quot;Comedy&amp;quot;, &amp;quot;Crime&amp;quot;, &amp;quot;Documentary&amp;quot;, &amp;quot;Drama&amp;quot;, &amp;quot;Fantasy&amp;quot;, &amp;quot;FilmNoir&amp;quot;, &amp;quot;Horror&amp;quot;, &amp;quot;Musical&amp;quot;, &amp;quot;Mystery&amp;quot;, &amp;quot;Romance&amp;quot;, &amp;quot;SciFi&amp;quot;, &amp;quot;Thriller&amp;quot;, &amp;quot;War&amp;quot;, &amp;quot;Western&amp;quot;)
+# Remove unnecessary variables
+movies$ID = NULL
+movies$ReleaseDate = NULL
+movies$VideoReleaseDate = NULL
+movies$IMDB = NULL
+# Remove duplicates
+movies = unique(movies)
+
+# Compute distances
+distances = dist(movies[2:20], method = &amp;quot;euclidean&amp;quot;)
+
+# Hierarchical clustering
+# clusterMovies = hclust(distances, method = &amp;quot;ward&amp;quot;) 
+clusterMovies = hclust(distances, method = &amp;quot;ward.D&amp;quot;)
+
+# Plot the dendrogram
+plot(clusterMovies)
+
+# Assign points to clusters
+clusterGroups = cutree(clusterMovies, k = 10)
+# Create a new data set with just the movies from cluster 2
+cluster2 = subset(movies, clusterGroups==2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;k-means-clustering-1:98d5e9e5464c079d1b4ca9841cba7675&#34;&gt;K-means clustering&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;healthy = read.csv(&amp;quot;healthy.csv&amp;quot;, header=FALSE)
+# 注意
+# data.frame-&amp;gt;matrix-&amp;gt;vector 变成一个2500的vector
+# data.frame-&amp;gt;vector 还是一个50*50的data.frame
+healthyMatrix = as.matrix(healthy)
+healthyVector = as.vector(healthyMatrix)
+
+# Specify number of clusters
+k = 5
+# Run k-means
+set.seed(1)
+KMC = kmeans(healthyVector, centers = k, iter.max = 1000)
+
+# Extract clusters
+healthyClusters = KMC$cluster
+
+# Plot the image with the clusters
+dim(healthyClusters) = c(nrow(healthyMatrix), ncol(healthyMatrix))
+
+image(healthyClusters, axes = FALSE, col=rainbow(k))
+
+# Apply to a test image
+tumor = read.csv(&amp;quot;tumor.csv&amp;quot;, header=FALSE)
+tumorMatrix = as.matrix(tumor)
+tumorVector = as.vector(tumorMatrix)
+
+# Apply clusters from before to new image, using the flexclust package
+# kcca K-Centroids Cluster Analysis
+install.packages(&amp;quot;flexclust&amp;quot;)
+library(flexclust)
+KMC.kcca = as.kcca(KMC, healthyVector)
+tumorClusters = predict(KMC.kcca, newdata = tumorVector)
+
+# Visualize the clusters
+dim(tumorClusters) = c(nrow(tumorMatrix), ncol(tumorMatrix))
+image(tumorClusters, axes = FALSE, col=rainbow(k))
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记05－文本分析</title>
+      <link>http://youngspring1.github.io/post/2016/2016-05-10-R05/</link>
+      <pubDate>Sat, 14 May 2016 23:19:28 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-05-10-R05/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第五单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;text-analytics:d5c69e163a15a2e5f9829d2828e73190&#34;&gt;Text Analytics&lt;/h2&gt;
+
+&lt;p&gt;第五单元的主题是文本分析。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:d5c69e163a15a2e5f9829d2828e73190&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;h4 id=&#34;bag-of-words:d5c69e163a15a2e5f9829d2828e73190&#34;&gt;Bag of Words&lt;/h4&gt;
+
+&lt;p&gt;一段文本，可以看作是多个单词的集合。&lt;br /&gt;
+统计这些单词的特征，可以归纳文本的倾向。&lt;/p&gt;
+
+&lt;p&gt;首先，我们需要对文本进行下面这几步预处理：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;clean up irregularities(统一大小写)&lt;/li&gt;
+&lt;li&gt;remove punctuations(去掉标点或者特殊符号)&lt;/li&gt;
+&lt;li&gt;remove stop words(去掉the／who／is／do这些单词)&lt;/li&gt;
+&lt;li&gt;stemming(获取词干，也就是去除动词变形，比如agrued，agrues，agruing，都变成agru)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;然后，我们统计文本中剩下这些单词的出现次数，生成一个矩阵，类似这样的格式：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;text num&lt;/th&gt;
+&lt;th&gt;word1&lt;/th&gt;
+&lt;th&gt;word2&lt;/th&gt;
+&lt;th&gt;word3&lt;/th&gt;
+&lt;th&gt;&amp;hellip;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;text1&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;text2&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;在实际中，生成的矩阵是个稀疏矩阵（有很多0），我们只选取出现次数比较多的，忽略那些不常见的单词。&lt;br /&gt;
+比如选取至少出现过20次的单词，其他的忽略。&lt;br /&gt;
+这样的矩阵，每列的列名就是自变量，矩阵的值就用做自变量的取值。&lt;/p&gt;
+
+&lt;p&gt;最后，手动添加一列，作为因变量，这样就可以根据这些单词的出现次数，预测因变量的取值了。&lt;br /&gt;
+所以，这一列因变量的数值如何定义，它的实际意义是什么，其实是比较复杂的。&lt;/p&gt;
+
+&lt;p&gt;在课程的例子中，它定义了&amp;rdquo;好感度&amp;rdquo;，并且只有下面五种取值，{-2,-1,0,1,2}，最终要建立模型预测哪些文本暗示发推的人对苹果公司很没有好感（好感度是－2）。最终发现，文本中含有&amp;rdquo;hate&amp;rdquo;,&amp;ldquo;wtf&amp;rdquo;的情况，推主对苹果公司很没有好感。😄&lt;/p&gt;
+
+&lt;h4 id=&#34;ibm-watson:d5c69e163a15a2e5f9829d2828e73190&#34;&gt;IBM Watson&lt;/h4&gt;
+
+&lt;p&gt;Watson的工作步骤是这样的：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Find LAT&lt;br /&gt;
+首先得搞明白问题是什么，也就是要找到问题的LAT(Lexial Answer Type)。
+问题&amp;rdquo;Mozart&amp;rsquo;s last and perhaps most powerful symphony shares its name with this planet.&amp;ldquo;的LAT是&amp;rdquo;this planet&amp;rdquo;，因为把答案&amp;rdquo;Jupiter&amp;rdquo;替换进原来的句子，
+&amp;ldquo;Mozart&amp;rsquo;s last and perhaps most powerful symphony shares its name with Jupiter&amp;rdquo;
+仍然是说得通的。&lt;/li&gt;
+&lt;li&gt;Generate Hypothesis&lt;br /&gt;
+在数据库中搜索上百个候选答案，替换掉LAT，生成很多假说。&lt;/li&gt;
+&lt;li&gt;Score Hypothesis&lt;br /&gt;
+对每个假说，进行文本搜索，可以将搜索的到的结果数目作为评分。&lt;/li&gt;
+&lt;li&gt;Rank Hypothesis&lt;br /&gt;
+对评分进行排序，选取评分最高的那个作为答案。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;2-建模和评估:d5c69e163a15a2e5f9829d2828e73190&#34;&gt;2.建模和评估&lt;/h3&gt;
+
+&lt;p&gt;预处理&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Read in the data
+# 不要把文本转化为因子
+tweets = read.csv(&amp;quot;tweets.csv&amp;quot;, stringsAsFactors=FALSE)
+
+# Create dependent variable
+tweets$Negative = as.factor(tweets$Avg &amp;lt;= -1)
+
+# Install new packages
+install.packages(&amp;quot;tm&amp;quot;)
+library(tm)
+install.packages(&amp;quot;SnowballC&amp;quot;)
+library(SnowballC)
+
+# Create corpus
+corpus = Corpus(VectorSource(tweets$Tweet))
+
+# Convert to lower-case
+corpus = tm_map(corpus, tolower)
+corpus = tm_map(corpus, PlainTextDocument)
+
+# Remove punctuation
+corpus = tm_map(corpus, removePunctuation)
+
+# Remove stopwords and apple
+corpus = tm_map(corpus, removeWords, c(&amp;quot;apple&amp;quot;, stopwords(&amp;quot;english&amp;quot;)))
+
+# Stem document 
+corpus = tm_map(corpus, stemDocument)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;统计，生成单词出现次数的矩阵&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Create matrix
+frequencies = DocumentTermMatrix(corpus)
+
+# Look at matrix 
+inspect(frequencies[1000:1005,505:515])
+
+# Check for sparsity
+# 找出出现次数至少有20次的单词
+findFreqTerms(frequencies, lowfreq=20)
+
+# 忽略99.5%的稀疏数据，只选取0.5%作为有效数据
+# Remove sparse terms 
+sparse = removeSparseTerms(frequencies, 0.995)
+
+# Convert to a data frame
+tweetsSparse = as.data.frame(as.matrix(sparse))
+# Make all variable names R-friendly
+colnames(tweetsSparse) = make.names(colnames(tweetsSparse))
+
+# Add dependent variable
+tweetsSparse$Negative = tweets$Negative
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;建模和评估&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Split the data
+library(caTools)
+set.seed(123)
+split = sample.split(tweetsSparse$Negative, SplitRatio = 0.7)
+trainSparse = subset(tweetsSparse, split==TRUE)
+testSparse = subset(tweetsSparse, split==FALSE)
+
+# Build a CART model
+library(rpart)
+library(rpart.plot)
+tweetCART = rpart(Negative ~ ., data=trainSparse, method=&amp;quot;class&amp;quot;)
+# Evaluate the performance of the model
+predictCART = predict(tweetCART, newdata=testSparse, type=&amp;quot;class&amp;quot;)
+table(testSparse$Negative, predictCART)
+
+
+# Random forest model
+library(randomForest)
+set.seed(123)
+tweetRF = randomForest(Negative ~ ., data=trainSparse)
+# Make predictions:
+predictRF = predict(tweetRF, newdata=testSparse)
+table(testSparse$Negative, predictRF)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记04－决策树和随机森林</title>
+      <link>http://youngspring1.github.io/post/2016/2016-05-10-R04/</link>
+      <pubDate>Tue, 10 May 2016 19:44:08 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-05-10-R04/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第四单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;trees:0257109cd77173fde404dfe977de0c33&#34;&gt;Trees&lt;/h2&gt;
+
+&lt;p&gt;第四单元的主题是决策树和随机森林。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:0257109cd77173fde404dfe977de0c33&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;h4 id=&#34;cart-classification-and-regression-trees:0257109cd77173fde404dfe977de0c33&#34;&gt;CART(classification and regression trees)&lt;/h4&gt;
+
+&lt;h6 id=&#34;决策树:0257109cd77173fde404dfe977de0c33&#34;&gt;决策树&lt;/h6&gt;
+
+&lt;p&gt;自变量是决策树上的节点(splits)。但是注意，不是每个自变量都有一个节点；也就是说，有的自变量有多个节点(随着取值的不同，导致因变量的结果也不同)，有的自变量没有节点(对因变量影响很小)。&lt;br /&gt;
+因变量是决策树上的叶子/终端(leaves/nodes)。此图上的因变量的取值是0或者1。&lt;br /&gt;
+在各个节点，根据各个自变量的取值，最终到达叶子节点，也就得到了因变量的取值。&lt;br /&gt;
+注意，决策树的左边，节点的判断语句总是为True／Yes，右边节点的判断语句总是为False／No。&lt;br /&gt;
+&lt;img src=&#34;http://7xrjai.com1.z0.glb.clouddn.com/20160517-tree-Rplot.png&#34; alt=&#34;tree&#34; /&gt;&lt;br /&gt;
+最左的分支表示，如果 LowerCou=lbr 且 Responde=CRI 且 Petition=CIT，那么因变量的取值为0。&lt;br /&gt;
+最右的分支表示，如果 LowerCou!=lbr 且 Responde=STA，那么因变量的取值为1。&lt;/p&gt;
+
+&lt;h6 id=&#34;决策树的大小:0257109cd77173fde404dfe977de0c33&#34;&gt;决策树的大小&lt;/h6&gt;
+
+&lt;p&gt;minbucket可以理解为，决策树被节点分割后，每个bucket数据的数量。&lt;br /&gt;
+minbucket越大，分组越少，split越少。&lt;br /&gt;
+minbucket越小，分组越多，split越多。&lt;/p&gt;
+
+&lt;h6 id=&#34;classification-tree-和-regression-tree:0257109cd77173fde404dfe977de0c33&#34;&gt;Classification tree 和 Regression tree&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Classification tree analysis is when the predicted outcome is the class to which the data belongs.（简单的讲，预测值是0和1，比如支持还是反对）&lt;/li&gt;
+&lt;li&gt;Regression tree analysis is when the predicted outcome can be considered a real number.（简单的讲，预测值是可变的，比如房价等等）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;体现在代码中的话，
+如果指定了type = &amp;ldquo;class&amp;rdquo;，那么是 Classification tree。&lt;br /&gt;
+如果没有指定type = &amp;ldquo;class&amp;rdquo;，那么是 Regression tree。&lt;/p&gt;
+
+&lt;h4 id=&#34;random-forest:0257109cd77173fde404dfe977de0c33&#34;&gt;Random Forest&lt;/h4&gt;
+
+&lt;p&gt;随机森林，被设计出来用于提高CART的精度。&lt;br /&gt;
+和字面意思类似，如果决策树只有一棵树，那么随机森林会创建多个决策树，然后找到效果最好的那一个。&lt;br /&gt;
+那么它是如何创建多个决策树的呢，有点复杂。&lt;br /&gt;
+它并不是多次调用rpart()，简单的调整几个参数而已。&lt;br /&gt;
+每个决策树所用的数据，都只是原数据的随机subset或者说随机子集。&lt;br /&gt;
+如果训练集被分成1，2，3，4，5 这五个子集，那么第一次可能选取2，4，5，2，1，第二次可能选取3，5，1，5，2。&lt;/p&gt;
+
+&lt;p&gt;参数nodesize&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;类似于minbucket，每个子集的最小数目。它越小，生成的决策树越大。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;参数ntree&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;生成多少个决策树。一般几百个就够了。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;好消息是，参数的选取，相比CART而言，对结果的影响没有那么大。&lt;/p&gt;
+
+&lt;h4 id=&#34;cross-validation:0257109cd77173fde404dfe977de0c33&#34;&gt;Cross Validation&lt;/h4&gt;
+
+&lt;p&gt;minbucket应该选取什么样的值，来大道最好效果呢？&lt;br /&gt;
+我们采用 k-fold cross validation 的方法。&lt;/p&gt;
+
+&lt;p&gt;我们将训练集train分成k份，比如 k=5 的时候，
+我们先用1，2，3，4来训练，5用来验证；&lt;br /&gt;
+再用1，2，3，5来训练，4用来验证；
+再用1，2，4，5来训练，3用来验证。。。
+所以模型中创建了很多决策树。
+我们测试每个分割方法下，参数每一个可能的取值，计算这个取值对应的预测精度，绘制曲线。&lt;br /&gt;
+曲线的X轴是参数的取值，Y轴是预测精度，这样可以很容易找到参数的最佳取值。&lt;/p&gt;
+
+&lt;h6 id=&#34;cp:0257109cd77173fde404dfe977de0c33&#34;&gt;CP&lt;/h6&gt;
+
+&lt;p&gt;像R平方一样，我们也定义了一个概念 cp(complexity parameter) 用来观测效果。&lt;br /&gt;
+cp越小，决策树越大(over fitting)。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?s = splits&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?lambda = penalty\;error&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?\sum_{leaves}(RSS\;at\;each\;leaf) + lambda*s&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?cp = \frac{lambda}{RSS(no\;splits)}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+cp越大，分母越小，tree越小。&lt;br /&gt;
+cp越小，分母越大，tree越大。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-建模和评估:0257109cd77173fde404dfe977de0c33&#34;&gt;2.建模和评估&lt;/h3&gt;
+
+&lt;h4 id=&#34;cart:0257109cd77173fde404dfe977de0c33&#34;&gt;CART&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Install rpart library
+install.packages(&amp;quot;rpart&amp;quot;)
+library(rpart)
+install.packages(&amp;quot;rpart.plot&amp;quot;)
+library(rpart.plot)
+
+# CART model
+# method=&amp;quot;class&amp;quot; 表示我们创建了一个 classification tree
+StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method=&amp;quot;class&amp;quot;, minbucket=25)
+
+# plot tree
+prp(StevensTree)
+
+# Make predictions
+# 记得指定 type = &amp;quot;class&amp;quot;
+PredictCART = predict(StevensTree, newdata = Test, type = &amp;quot;class&amp;quot;)
+table(Test$Reverse, PredictCART)
+
+# ROC curve
+library(ROCR)
+
+PredictROC = predict(StevensTree, newdata = Test)
+# 注意这里没有指定 type = &amp;quot;class&amp;quot;
+# 也就是说，学习得到 classification tree 的模型，但是评估使用 regression tree
+# 真是天杀的。。。
+# 这个PredictROC 有两列
+# 第一列是预测y=0的概率
+# 第二列是预测y=1的概率
+# 如果比较一下 PredictROC 每行的数据，可以发现这两个概率和为1！那是当然！
+# 如果拿 PredictROC 和 PredictCART相比
+# 如果 PredictROC[n,2]&amp;gt;0.5，那么PredictCART[n]=1。
+# 如果 PredictROC[n,2]&amp;lt;0.5，那么PredictCART[n]=0。
+# 所以下面我们只使用第二列
+
+pred = prediction(PredictROC[,2], Test$Reverse)
+perf = performance(pred, &amp;quot;tpr&amp;quot;, &amp;quot;fpr&amp;quot;)
+plot(perf)
+
+# AUC
+as.numeric(performance(pred, &amp;quot;auc&amp;quot;)@y.values)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;random-forest-1:0257109cd77173fde404dfe977de0c33&#34;&gt;Random Forest&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;install.packages(&amp;quot;randomForest&amp;quot;)
+library(randomForest)
+
+# Build random forest model
+StevensForest = randomForest(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, ntree=200, nodesize=25 )
+# Warning message:
+# In randomForest.default(m, y, ...) :
+#   The response has five or fewer unique values.  Are you sure you want to do regression?
+
+# 如上面的提示消息所示
+# randomForest认为因变量的取值很少，不应该用regression
+# 但是 random forest 没有 type = &amp;quot;class&amp;quot; 这样的参数
+# 所以我们必须确保因变量这一列的取值都是因子
+# Convert outcome to factor
+Train$Reverse = as.factor(Train$Reverse)
+Test$Reverse = as.factor(Test$Reverse)
+
+# Try again
+StevensForest = randomForest(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, ntree=200, nodesize=25 )
+
+# Make predictions
+PredictForest = predict(StevensForest, newdata = Test)
+table(Test$Reverse, PredictForest)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;cross-validation-1:0257109cd77173fde404dfe977de0c33&#34;&gt;Cross Validation&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Install cross-validation packages
+install.packages(&amp;quot;caret&amp;quot;)
+library(caret)
+install.packages(&amp;quot;e1071&amp;quot;)
+library(e1071)
+
+# Define cross-validation experiment
+numFolds = trainControl( method = &amp;quot;cv&amp;quot;, number = 10 )
+cpGrid = expand.grid( .cp = seq(0.01,0.5,0.01)) 
+
+# Perform the cross validation
+train(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method = &amp;quot;rpart&amp;quot;, trControl = numFolds, tuneGrid = cpGrid )
+
+# Create a new CART model
+StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data = Train, method=&amp;quot;class&amp;quot;, cp = 0.18)
+
+# Make predictions
+PredictCV = predict(StevensTreeCV, newdata = Test, type = &amp;quot;class&amp;quot;)
+table(Test$Reverse, PredictCV)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;参数cp和loss的使用:0257109cd77173fde404dfe977de0c33&#34;&gt;参数cp和loss的使用&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;# Penalty Matrix
+PenaltyMatrix = matrix(c(0,1,2,3,4,2,0,1,2,3,4,2,0,1,2,6,4,2,0,1,8,6,4,2,0), byrow=TRUE, nrow=5)
+
+# CART model
+ClaimsTree = rpart(bucket2009 ~ age + alzheimers + arthritis + cancer + copd + depression + diabetes + heart.failure + ihd + kidney + osteoporosis + stroke + bucket2008 + reimbursement2008, data=ClaimsTrain, method=&amp;quot;class&amp;quot;, cp=0.00005)
+
+prp(ClaimsTree)
+
+# Make predictions
+PredictTest = predict(ClaimsTree, newdata = ClaimsTest, type = &amp;quot;class&amp;quot;)
+# New CART model with loss matrix
+ClaimsTree = rpart(bucket2009 ~ age + alzheimers + arthritis + cancer + copd + depression + diabetes + heart.failure + ihd + kidney + osteoporosis + stroke + bucket2008 + reimbursement2008, data=ClaimsTrain, method=&amp;quot;class&amp;quot;, cp=0.00005, parms=list(loss=PenaltyMatrix))
+
+# Redo predictions and penalty error
+PredictTest = predict(ClaimsTree, newdata = ClaimsTest, type = &amp;quot;class&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记03－指数回归</title>
+      <link>http://youngspring1.github.io/post/2016/2016-04-26-R03/</link>
+      <pubDate>Tue, 26 Apr 2016 11:52:13 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-04-26-R03/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第三单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;logistic-regression:2842374fb15231f36230fc5afd744bb4&#34;&gt;Logistic Regression&lt;/h2&gt;
+
+&lt;p&gt;第三单元的主题是指数回归。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:2842374fb15231f36230fc5afd744bb4&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;h4 id=&#34;指数回归:2842374fb15231f36230fc5afd744bb4&#34;&gt;指数回归&lt;/h4&gt;
+
+&lt;p&gt;指数回归用于因变量y是二进制的情况，也就是说，y的取值只有1或者0。&lt;br /&gt;
+y=1的概率：&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?P(y=1)=\frac{1}{1+e^{-{(\beta_0 +\beta_1x_1+\beta_2x_2+\ldots+\beta_nx_n+\epsilon)}}}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;y=1的概率与y＝0的概率的比值：&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?Odds=\frac{P(y=1)}{P(y=0)}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?Odds=\frac{P(y=1)}{1-P(y=1)}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?Odds=e^{\beta_0 +\beta_1x_1+\beta_2x_2+\ldots+\beta_nx_n+\epsilon}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;混淆矩阵-confusion-matrix:2842374fb15231f36230fc5afd744bb4&#34;&gt;混淆矩阵（confusion matrix）&lt;/h4&gt;
+
+&lt;p&gt;有阈值t，&lt;br /&gt;
+如果P(y=1) &amp;gt;=t，则预测y=1。&lt;br /&gt;
+如果P(y=1) &amp;lt; t，则预测y=0。&lt;/p&gt;
+
+&lt;p&gt;对于预测结果，我们得到矩阵&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;predict y=0&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;predict y=1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;actual y=0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TN (True  Nagative)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FP (False Positive)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;actual y=1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FN (False Nagative)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TP (True  Positive)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;根据矩阵中的值，我们可以计算指数回归的一些指标：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?accuracy=\frac{TN+TP}{N}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?specificity=\frac{TN}{TN+FP}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?sensitivity=\frac{TP}{FN+TP}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;补充概念：&lt;br /&gt;
+适合率&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?precision=\frac{TP}{FP+TP}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+再现率&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?recall=tpr=\frac{TP}{FN+TP}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+F值（F-measure）&lt;br /&gt;
+&lt;img src=&#34;http://latex.codecogs.com/svg.latex?F-measure=\frac{2*precision*recall}{precision+recall}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+F值越高，性能越好&lt;/p&gt;
+
+&lt;h4 id=&#34;roc曲线:2842374fb15231f36230fc5afd744bb4&#34;&gt;ROC曲线&lt;/h4&gt;
+
+&lt;p&gt;ROC曲线 (Receiver Operator Characteristic curve)可以指导我们如何选取阈值t。
+y轴的指标是 sensitivity，所以也叫 True positive rate。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?sensitivity=\frac{TP}{FN+TP}&#34; alt=&#34;formula&#34; /&gt;&lt;br /&gt;
+x轴的指标是 1-specificity，所以也叫 False positive rate。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?1-sensitivity=\frac{FP}{TN+FP}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;每取一个阈值t，则计算相对应的 TPR 和 FPR，在坐标里标出这个点，就形成ROC曲线。&lt;br /&gt;
+&lt;img src=&#34;http://7xrjai.com1.z0.glb.clouddn.com/20160509-ROC.png&#34; alt=&#34;ROC Curve&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如图所示，&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;t=0时，我们预测所有的y=1，即TPR=1，FPR=1，对应的坐标是(1,1)   
+t=1时，我们预测所有的y=0，即TPR=0，FPR=0，对应的坐标是(0,0)   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这就是曲线的两个端点。&lt;/p&gt;
+
+&lt;h4 id=&#34;auc值:2842374fb15231f36230fc5afd744bb4&#34;&gt;AUC值&lt;/h4&gt;
+
+&lt;p&gt;AUC（Area Under Curve）被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-建立回归模型:2842374fb15231f36230fc5afd744bb4&#34;&gt;2.建立回归模型&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# 建立模型
+# Top10作为因变量，其他所有的列都作为自变量
+SongsLog1 = glm(Top10 ~ ., data=SongsTrain, family=binomial)
+
+# Top10作为因变量，除了loudness以外的所有列都作为自变量
+SongsLog2 = glm(Top10 ~ . - loudness, data=SongsTrain, family=binomial)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;3-评估:2842374fb15231f36230fc5afd744bb4&#34;&gt;3.评估&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# 预测
+testPredict = predict(SongsLog3, newdata=SongsTest, type=&amp;quot;response&amp;quot;)
+
+# 生成混淆矩阵
+table(SongsTest$Top10, testPredict &amp;gt;= 0.45)
+
+# 生成ROC曲线
+library(ROCR)
+pred = prediction(testPredict, test$violator)
+perf = performance(pred, &amp;quot;tpr&amp;quot;, &amp;quot;fpr&amp;quot;)
+plot(perf)
+
+# 加点颜色和坐标点
+plot(perf, colorize=TRUE, print.cutoffs.at=seq(0,1,0.1), text.adj=c(-0.2,1.7))
+
+# 计算AUC值
+as.numeric(performance(pred, &amp;quot;auc&amp;quot;)@y.values)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;附录a-分割train和test的方法一:2842374fb15231f36230fc5afd744bb4&#34;&gt;附录A 分割train和test的方法一&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;library(caTools)
+set.seed(144)
+
+split = sample.split(parole$violator, SplitRatio = 0.7)
+train = subset(parole, split == TRUE)
+test = subset(parole, split == FALSE)
+# 特别注意：每次运行出来的结果是不一样的
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;也可以这样做：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;library(caTools)
+set.seed(144)
+
+split = sample(1:nrow(data), size=0.7 * nrow(data))
+train = data[split,]
+test = data[-split,]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;附录b-补充缺失数据:2842374fb15231f36230fc5afd744bb4&#34;&gt;附录B 补充缺失数据&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;library(mice)
+set.seed(144)
+vars.for.imputation = setdiff(names(loans), &amp;quot;not.fully.paid&amp;quot;)
+imputed = complete(mice(loans[vars.for.imputation]))
+loans[vars.for.imputation] = imputed
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记02－线性回归</title>
+      <link>http://youngspring1.github.io/post/2016/2016-04-23-R02/</link>
+      <pubDate>Sat, 23 Apr 2016 15:19:39 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-04-23-R02/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第二单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;linear-regression:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;Linear Regression&lt;/h2&gt;
+
+&lt;p&gt;第二单元的主题是线性回归。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-理论:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;1.理论&lt;/h3&gt;
+
+&lt;p&gt;一元线性回归公式：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?y^i=\beta_0+\beta_1x^i+\epsilon^i&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;其中x是自变量independent variable，y是因变量dependent variable。&lt;br /&gt;
+beta是相关系数coefficient，epsilon是误差error。&lt;/p&gt;
+
+&lt;p&gt;为了判断线性回归的效果，我们有如下检验标准：&lt;/p&gt;
+
+&lt;p&gt;1.SSE（sum of squared errors）&lt;br /&gt;
+注意这里的误差是实际值相对于预测值的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?SSE = \sum_{i=1}^{n}\epsilon_i^2&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;2.SST （total sum of square）&lt;br /&gt;
+公式同上。但这里的误差是实际值相对于baseline的。baseline是因变量的平均值。&lt;br /&gt;
+所以有 0 &amp;lt;= SSE &amp;lt;= SST 。&lt;/p&gt;
+
+&lt;p&gt;3.RMSE（root mean square error）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?RMSE = \sqrt\frac{SSE}{n}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;4.R平方&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?R^2 = 1 - \frac{SSE}{SST}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;R平方越接近1越好。&lt;/p&gt;
+
+&lt;p&gt;多元线性回归公式：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?y^i = \beta_0 + \beta_1x_1^i + \beta_2x_2^i + \ldots + \beta_nx_n^i + \epsilon^i&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;所有数据分析，都要经历 training－test－predict 这三个过程。
+在接下来的例子中，我们介绍 建模－评估 这前两个过程。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;补充一个relative error的公式：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?relative\;error =  \frac{observed\;value - estimated\,value}{observed\;value}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;2-0-事前整理:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;2.0 事前整理&lt;/h5&gt;
+
+&lt;p&gt;2.0.1 去除空值&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 如果数据中包含空值
+DF ＝ na.omit(DF)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2.0.2 reference level&lt;br /&gt;
+有些列时字符型的，它们无法进行计算。&lt;br /&gt;
+如果某列的因子不算多，我们可以把这一列变换成多个可以用于计算的列。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 假设DF$colr有因子 &amp;quot;Red&amp;quot;4次, &amp;quot;Blue&amp;quot;3次, &amp;quot;Yellow&amp;quot;2次
+DF$colr = relevel(DF$colr, &amp;quot;red&amp;quot;)
+
+# 效果是，DF$colr 这一列不见了
+# 增加了两列 DF$colrBlue 和 DF$colrYellow
+# 原先 DF$colr == &amp;quot;Red&amp;quot; 的那些行，它们 colrBlue 和 colrYellow 的值都是0
+# 原先 DF$colr == &amp;quot;Blue&amp;quot; 的那些行，它们 colrBlue=1, colrYellow=0
+# 原先 DF$colr == &amp;quot;Yellow&amp;quot; 的那些行，它们 colrBlue=0, colrYellow=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-建立回归模型:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;2.建立回归模型&lt;/h3&gt;
+
+&lt;p&gt;建模使用lm()函数。&lt;br /&gt;
+DF是保存学习数据的data.frame。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;model = lm(y ~ x1 + x2 + ... +xn, data = DF)
+# y不要写成 DF$y
+# x1也不要写成 DF$x1
+# 否则，后面做预测predict()的时候，DFTest代入会报warning
+
+# 除了y列以外所有列
+model = lm(y ~ ., data = DF)
+
+# 误差 model$residuals
+SSE = sum(model$residuals^2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;随便看个结果吧&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; summary(model)
+
+Call:
+lm(formula = Price ~ HarvestRain + WinterRain, data = wine)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.0933 -0.3222 -0.1012  0.3871  1.1877 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&amp;gt;|t|)    
+(Intercept)  7.865e+00  6.616e-01  11.888 4.76e-11 ***
+HarvestRain -4.971e-03  1.601e-03  -3.105  0.00516 ** 
+WinterRain  -9.848e-05  9.007e-04  -0.109  0.91392    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.5611 on 22 degrees of freedom
+Multiple R-squared:  0.3177,    Adjusted R-squared:  0.2557 
+F-statistic: 5.122 on 2 and 22 DF,  p-value: 0.01492
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Call表示建模使用的语句。&lt;br /&gt;
+Residuals表示误差。&lt;br /&gt;
+Coefficients表示系数，就是公式里面的beta。&lt;br /&gt;
+Estimate的第一行是常数beta0，第二行是第一个自变量的系数beta1，第三行是第二个自变量的系数beta2，后面类推。&lt;br /&gt;
+t value越大越好&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://latex.codecogs.com/svg.latex?{t\,value} = \frac{Estimate}{Std. Error}&#34; alt=&#34;formula&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pr(&amp;gt;|t|) 和t value相反，越小越好。&lt;br /&gt;
+最后一列星星越多越好。&lt;br /&gt;
+三短横下面这行解释了星星的含义。&lt;br /&gt;
+Multiple R-squared就是R平方，越接近1越准确。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-评估:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;3.评估&lt;/h3&gt;
+
+&lt;p&gt;对于刚过简历的模型，我们使用测试数据来评估一下准确度。&lt;br /&gt;
+model就是上文建立的模型。&lt;br /&gt;
+DFTest是测试数据，它的结构和上文的DF一样。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;predict = predict(model, newdata = DFTest)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个命令的返回值是 DFTest$Price 的&lt;strong&gt;预测&lt;/strong&gt;结果。你可以跟 DFTest$Price 的&lt;strong&gt;实际&lt;/strong&gt;结果相比较，计算SSE、RMSE、R平方等等来衡量对测试数据的预测的准确性。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;SSE = sum( (DFTest$Price - predict)^2 )
+SST = sum( (DFTest$Price - mean(DF$Price)^2 )
+R2 = 1 - SSE/SST
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-correlation:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;4.Correlation&lt;/h3&gt;
+
+&lt;p&gt;线性相关性&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cor(var1, var2)
+# 也可以考察整个DF中，每两列的线性相关性
+cor(DF)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;返回值是斜率。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;建立线性回归模型的时候，应该去掉相关性比较高的列。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;补充知识a-棒球统计术语:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;补充知识A－棒球统计术语&lt;/h3&gt;
+
+&lt;p&gt;完全不懂棒球啊，一开始摸不着头脑。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;缩写&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;原文&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;中文&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;RS&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Run Scores&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;跑分，得分&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;RA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Run Allowed&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;失分，对手得分&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;OBP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;On-Base Percentage&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;上垒率&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;OOBP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Opponent On-Base Percentage&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;对手上垒率&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;SLG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Slugging Percentage&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;长打率，击中率&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;OSLG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Opponent Slugging Percentage&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;对手长打率&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;BA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Batting Avarage&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;平均成功率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;补充知识b-篮球统计术语:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;补充知识B－篮球统计术语&lt;/h3&gt;
+
+&lt;p&gt;年轻时看NBA，好歹知道一点。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;缩写&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;原文&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;中文&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;PTS&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Points&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;得分&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;oppPTS&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Opponent Points&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;失分，对手得分&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;FG&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Field Goals (success)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;进球数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;FGA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Field Goals Attempted&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;出手次数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;X2P&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2 Points&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2分球进球数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;X2PA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2 Points Attempted&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;2分球出手次数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;X3P&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3 Points&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3分球进球数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;X3PA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3 Points Attempted&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;3分球出手次数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;FT&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Free Throw&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;罚球进球数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;FTA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Free Throw Attempted&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;发球出手次数&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ORB&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Offensive Rebounds&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;前场篮板，进攻篮板&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;DRB&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Defensive Rebounds&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;后场篮板，防守篮板&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;AST&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Assists&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;助攻&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;STL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Steals&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;抢断&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;BLK&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Blocks&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;盖帽&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;TOV&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Turnovers&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;失误&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;注：X2P列，原始数据列名是2P。由于R不支持数字开头的列名／变量，读取CSV文件的时候，会在原列名2P前加个X，从而变成 X2P。&lt;/p&gt;
+
+&lt;h3 id=&#34;补充知识c-滞后序列:efa3f4364b4acd6454b77ef89af35a47&#34;&gt;补充知识C－滞后序列&lt;/h3&gt;
+
+&lt;p&gt;函数lag，用于生成滞后/偏移序列？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;lag(x, k = 1, ...)
+# k &amp;lt; 0, previous observations   
+# k &amp;gt; 0, future observations
+# na.pad=TRUE, add missing values
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R语言笔记01－R语言入门</title>
+      <link>http://youngspring1.github.io/post/2016/2016-04-18-R01/</link>
+      <pubDate>Mon, 18 Apr 2016 19:55:25 +0800</pubDate>
+      
+      <guid>http://youngspring1.github.io/post/2016/2016-04-18-R01/</guid>
+      <description>
+
+&lt;p&gt;MIT课程 &lt;a href=&#34;https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info&#34;&gt;15.071x&lt;/a&gt; 第一单元的学习记录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;r语言入门:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;R语言入门&lt;/h2&gt;
+
+&lt;p&gt;R语言入门只讲了一些常用的操作。相对于动辄花一本书来讲这些，真是相当简约。但其实足够了，其他操作，需要的时候再查嘛。&lt;br /&gt;
+数据分析的四要素：data、models、decisions、value&lt;/p&gt;
+
+&lt;h3 id=&#34;简单使用:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;简单使用&lt;/h3&gt;
+
+&lt;p&gt;帮助：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;?func
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;显示当前的临时变量：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;获取／设置当前目录：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;getwd()
+setwd()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;显示当前文件夹下的文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dir()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;数据结构:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;数据结构&lt;/h3&gt;
+
+&lt;p&gt;向量概念：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;所有的操作都是对向量的每个元素实施的
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;data.frame：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;observation：行
+variable   ：列，data.frame是按照列存储的
+rbind()合并两个data.frame
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;序列：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;自动生成序列seq()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;获取数据:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;获取数据&lt;/h3&gt;
+
+&lt;p&gt;读取CSV文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DF = read.csv(&amp;quot;file_path&amp;quot;)
+# 返回值是data.frame
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看DF的基本信息：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;str(DF)
+# DF的结构信息。行和列的数目，列名、列的类型、列的数据举例。
+
+summary(DF)
+# 每列的最大值、最小值、中位数、平均数、1/4值、3/4值，以及是否包含空值。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;写入CSV文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;write.csv(DF, &amp;quot;file_path&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;从内存中删除变量：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rm(DF)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;数据操作:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;数据操作&lt;/h3&gt;
+
+&lt;p&gt;选取一部分数据：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;subset( DF, 条件1 &amp;amp; 条件2 ｜ 条件3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;按照列名选取3列：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DF[c(var1, var2, var3)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;选取1，3，5列：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DF[c(1, 3, 5)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;计算平均值和标准差：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mean(DF$var)
+sd(DF$var)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;返回最大值／最小值的位置(index)：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;which.max(DF$var)
+which.min(DF$var)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;返回行数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nrow(DF)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;绘图:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;绘图&lt;/h3&gt;
+
+&lt;p&gt;直方图，反映&lt;strong&gt;一列&lt;/strong&gt;数据的分布情况：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hist(DF$var, xlim = c(1, 100), breaks = 100)
+# xlim 限定范围
+# breaks x轴的精确度。注意是针对原始数据的，不是对限定后的
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;箱型图：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;boxplot(DF$var1 ~ DF$var2, xlab = &amp;quot;x-label&amp;quot;, ylab = &amp;quot;y-label&amp;quot;, main = &amp;quot;title&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;点阵图：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;plot(......, col = &amp;quot;red&amp;quot;)
+line(......, col = &amp;quot;blue&amp;quot;) # 在原先的基础上再加一条
+
+函数jitter() # 对于有很多重合的点阵图，先用jitter偏移一点，这样看上去效果好很多
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其他共通的参数：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;col = &amp;quot;red&amp;quot;
+type = &amp;quot;line&amp;quot; # 可以指定1，2，3，4，5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;聚合:86ba9dc4beedcb3ca4aa6515cf113aed&#34;&gt;聚合&lt;/h3&gt;
+
+&lt;p&gt;分组：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;table(DF$var1)
+# var1列中，每种数据的数量的统计
+table(DF$var1, DF$var2)
+# var1和var2列中，每种数据的数量的交叉统计
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;分组计算：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tapply(DF$var1, DF$var2, func)
+# DF$var1, 原始数据
+# DF$var2, 分组依据
+# func, 要应用的函数
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

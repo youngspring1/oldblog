@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <base href="http://youngspring1.github.io//">
+  <script>
+    document._writeOriginal = document.write;
+    document.write = function(str) {
+        if (str.indexOf('livereload.js') > -1) {
+            document._writeOriginal(str);
+        } else {
+            document._writeOriginal('<!-- Be Hijack!! -->');
+        }
+    }
+  </script>
+  <title>MIT:The Analytics Edge 笔记08－线性优化 - 行行重行行</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="keywords" content="R,">
+<meta name="description" content="MIT课程 15.071x The Analytics Edge 第八单元的学习记录。 Linear Optimization 第八单元的主题是线性优化。 1.理论 线性优化 线性优化，其实是用Excel／LibreOffice求解">
+<meta name="author" content="youngspring1">
+<meta name="publisher" content="youngspring1">
+<meta name="generator" content="http://gohugo.io/"/>
+
+<meta itemprop="name" content="MIT:The Analytics Edge 笔记08－线性优化 - 行行重行行">
+<meta itemprop="description" content="MIT课程 15.071x The Analytics Edge 第八单元的学习记录。 Linear Optimization 第八单元的主题是线性优化。 1.理论 线性优化 线性优化，其实是用Excel／LibreOffice求解">
+<meta itemprop="image" content="http://7xrjai.com1.z0.glb.clouddn.com/img-icon.jpg">
+
+<meta property="og:title" content="MIT:The Analytics Edge 笔记08－线性优化 - 行行重行行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://youngspring1.github.io/post/2016/2016-06-19-R08/" />
+<meta property="og:image" content="http://youngspring1.github.io//public/coderzh.jpg" />
+<meta property="og:description" content="MIT课程 15.071x The Analytics Edge 第八单元的学习记录。 Linear Optimization 第八单元的主题是线性优化。 1.理论 线性优化 线性优化，其实是用Excel／LibreOffice求解">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@youngspring1">
+<meta name="twitter:title" content="MIT:The Analytics Edge 笔记08－线性优化 - 行行重行行">
+<meta name="twitter:description" content="MIT课程 15.071x The Analytics Edge 第八单元的学习记录。 Linear Optimization 第八单元的主题是线性优化。 1.理论 线性优化 线性优化，其实是用Excel／LibreOffice求解">
+<meta name="twitter:creator" content="@youngspring1">
+<meta name="twitter:image" content="http://7xrjai.com1.z0.glb.clouddn.com/img-icon.jpg">
+
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+  <link rel="canonical" href="http://youngspring1.github.io/post/2016/2016-06-19-R08/">
+  <link rel='shortlink' href="http://youngspring1.github.io/post/2016/2016-06-19-R08/"/>
+  <link rel="shortcut icon" href="http://youngspring1.github.io//public/favicon.ico"/>
+  
+<link rel="stylesheet" id="human-style-css" href="http://youngspring1.github.io/wp-content/themes/hueman/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="human-style-css2" href="http://youngspring1.github.io/wp-content/themes/hueman-child/style.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="responsive-css" href="http://youngspring1.github.io/wp-content/themes/hueman/responsive.css" type="text/css" media="all"/>
+<link rel="stylesheet" id="font-awesome-css" href="http://youngspring1.github.io/wp-content/themes/hueman/fonts/font-awesome.min.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="http://youngspring1.github.io/public/highlight/styles/github.css">
+<script src="http://youngspring1.github.io/public/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" id="human-style-css3" href="http://youngspring1.github.io/wp-content/themes/hueman-child/user.css" type="text/css" media="all"/>
+<link rel="stylesheet" href="public/font/hack/css/hack.min.css">
+
+<script type="text/javascript" src="assets/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/jquery.jplayer.min.js"></script>
+<script type="text/javascript" src="wp-content/themes/hueman/js/scripts.js"></script>
+<script type="text/javascript" src="assets/picturefill/picturefill.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.matchHeight-min.js"></script>
+<script type="text/javascript" async defer src="assets/js/myblog.js"></script>
+
+</head>
+
+<body class="single single-post single-format-standard col-3cm full-width topbar-enabled chrome">
+<div id="wrapper">
+  <header id="header">
+
+  <nav class="nav-container group" id="nav-topbar">
+    <div class="nav-toggle"><i class="fa fa-bars"></i></div>
+    <div class="nav-text"></div>
+    <div class="nav-wrap container">
+      <a rel="nofollow" href="http://youngspring1.github.io//" class="nav-cs-icon">
+        <img width="40" height="40" src="http://7xrjai.com1.z0.glb.clouddn.com/img-icon.jpg" alt="youngspring1" title="Home">
+
+      </a>
+      <ul id="menu-default-menu" class="nav container-inner group">
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/">首页</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/categories/%E6%96%B0%E7%9F%A5/">新知</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/categories/data.table%E6%95%99%E7%A8%8B/">data.table教程</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/">数据分析笔记</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">机器学习的数学基础</a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/post/">一览</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/about/">关于</a>
+        </li>
+        
+        <li class="menu-item menu-item-type-post_type menu-item-object-page">
+          <a rel="nofollow" href="http://youngspring1.github.io/feed.xml" type="application/rss+xml" target="_blank">订阅</a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-text">
+        不想当建筑师的程序员不是优秀的运动员
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fa fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner">
+            <form method="get" class="searchform themeform" action="https://www.google.com/search">
+              <div>
+                <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </nav>
+  
+
+  <div class="container group">
+    <div class="container-inner">
+
+      <div class="group pad">
+
+        <div class="group pad">
+          <h1 class="site-title">
+            <a rel="nofollow" href="http://youngspring1.github.io//" rel="home">
+              <img style="border-radius: 50%;width:72px;height:72px;margin:0 auto;" alt="youngspring1" src="http://7xrjai.com1.z0.glb.clouddn.com/img-icon.jpg"></img>
+
+              行行重行行
+            </a>
+          </h1>
+          <p class="site-description"> youngspring1 的实验场 </p>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  
+
+</header>
+
+
+
+  <div class="container" id="page">
+    <div class="container-inner">
+      <div class="main">
+        <div class="main-inner group">
+          <section class="content">
+            <div class="page-title pad group">
+              <ul class="meta-single group">
+                
+                <li class="category">
+                  <a href="http://youngspring1.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" rel="category tag">数据分析笔记</a>
+                </li>
+                
+                <li class="category">
+                  <a href="http://youngspring1.github.io/categories/%E6%96%B0%E7%9F%A5/" rel="category tag">新知</a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="pad group">
+
+              <article
+                  class="post type-post status-publish format-standard has-post-thumbnail hentry category-australien tag-bondi-beach tag-city2surf tag-sydney">
+                <div class="post-inner group">
+
+                  <h1 class="post-title">MIT:The Analytics Edge 笔记08－线性优化</h1>
+
+                  <p class="post-byline">
+                    by  · 2016年06月19日 · 1210 Words ·
+                    ~3min reading time |
+
+                  </p>
+
+                  <div class="clear"></div>
+
+                  <div class="entry">
+                    <div class="entry-inner">
+                      
+                      
+
+<p>MIT课程 <a href="https://courses.edx.org/courses/course-v1:MITx+15.071x_3+1T2016/info">15.071x The Analytics Edge</a> 第八单元的学习记录。</p>
+
+<hr />
+
+<h2 id="linear-optimization:b27ba36c9adad52060ae60e72a6ed77d">Linear Optimization</h2>
+
+<p>第八单元的主题是线性优化。</p>
+
+<h3 id="1-理论:b27ba36c9adad52060ae60e72a6ed77d">1.理论</h3>
+
+<h4 id="线性优化:b27ba36c9adad52060ae60e72a6ed77d">线性优化</h4>
+
+<p>线性优化，其实是用Excel／LibreOffice求解一个简单的多元1次多项式的最大值。<br />
+使用LibreOffice是这样做的：</p>
+
+<ol>
+<li>在单元格中填写多项式和约束条件。</li>
+<li>选取Tools-&gt;Solver，指定多项式，以及各种约束条件，当然也要选择［Linear Solver］这个方法。</li>
+<li>点击［Solve］就可以得到结果啦。</li>
+</ol>
+
+<p>在Excel中，需要在<code>option</code> - <code>addin</code> - <code>Excel addin</code> 选择加载<code>solver addin</code>，这样才会在data菜单栏中显示出<code>solver</code>按钮。</p>
+
+<h4 id="sensitivity-analysis:b27ba36c9adad52060ae60e72a6ed77d">sensitivity analysis</h4>
+
+<p>sensitivity analysis用来展示，结果是如何随数据（变量／约束条件）的变化而变化的。<br />
+shadow prices：表示当需求增加时，将（总量增加量／需求增量）的值定义为影子价格。<br />
+<img src="http://7xrjai.com1.z0.glb.clouddn.com/20160624-R08-sensitive.png" alt="sensitivity analysis" />
+如图，纵坐标和横坐标表示两种不同的需求。暗红色阴影表示可能的取值范围。<br />
+如果不断提高需求R，从100到125到150，影子价格都保持不变；但是如果需求提高到170，影子价格就会发生变化。<br />
+如果不短提高需求D，从150到100，影子价格都为0，总量也不变。</p>
+
+<p>影子价格有可能在需求增加的一个范围内保持不变。也有可能一直为0。</p>
+
+<h3 id="2-实战:b27ba36c9adad52060ae60e72a6ed77d">2.实战</h3>
+
+<p>当然，用R也能解决这样的问题。</p>
+
+<pre><code># 先安装pkg
+install.packages(&quot;lpSolveAPI&quot;)
+library(lpSolveAPI)
+
+# 创建模型
+# 说明：
+# 第一个参数是约束条件的个数。
+# one capacity constraint: 载客量有一个最大值（飞机座位数）
+# two demand constraints : 每种票价的数目（regular seats／discount seats）都有一个最大值
+# 所以这个参数的取值是3
+# 第二个参数是变量的个数。
+# decision variables : 我们有两种票价（regular seats／discount seats）
+# 所以这个参数的取值是2
+
+AirlineSimple = make.lp(3,2)
+# 创建出来的AirlineSimple是这样子的：
+Model name: 
+            C1    C2         
+Minimize     0     0         
+R1           0     0  free  0
+R2           0     0  free  0
+R3           0     0  free  0
+Kind       Std   Std         
+Type      Real  Real         
+Upper      Inf   Inf         
+Lower        0     0         
+
+# 那下面我们就来指定多项式和约束条件
+# 最终的效果是这样的：
+# max         617*R + 238*D
+# subject to    1*R +   1*D &lt;= 166
+#               1*R +   0*D &lt;= 100
+#               0*R +   1*D &lt;= 150  
+
+# 特别注意：执行顺序，set.objfn()不能放在前面，我被坑了。。。
+# 指定约束条件（跟效果竖着对比着看）
+set.column(AirlineSimple, 1, c(1,1,0))
+set.column(AirlineSimple, 2, c(1,0,1))
+set.constr.type(AirlineSimple, c(&quot;&lt;=&quot;,&quot;&lt;=&quot;,&quot;&lt;=&quot;))
+set.rhs(AirlineSimple, c(166,100,150))
+# 指定两个变量的参数
+set.objfn(AirlineSimple, c(617,238))
+# 默认的是最小值，我们改为最大值
+lp.control(AirlineSimple,sense='max')
+
+# 这样就创建好了：
+Model name: 
+            C1    C2         
+Maximize   617   238         
+R1           1     1  &lt;=  166
+R2           1     0  &lt;=  100
+R3           0     1  &lt;=  150
+Kind       Std   Std         
+Type      Real  Real         
+Upper      Inf   Inf         
+Lower        0     0
+
+# 变量的取值是上面最后两行Upper和Lower，可以通过函数set.bounds()来修改
+
+# 现在可以来运行了
+# 如果正确运行，返回值是0
+solve(AirlineSimple)
+# 查看取得的最大值
+get.objective(AirlineSimple)
+# 查看取最大值时，两个变量的取值
+get.variables(AirlineSimple)
+
+# JFK 从DFW中转，到LAX的场景
+# 有8个约束条件，6个变量：
+AirlineConnecting = make.lp(8,6)
+set.column(AirlineConnecting, 1, c(1,1,1,0,0,0,0,0))
+set.column(AirlineConnecting, 2, c(1,1,0,1,0,0,0,0))
+set.column(AirlineConnecting, 3, c(1,0,0,0,1,0,0,0))
+set.column(AirlineConnecting, 4, c(1,0,0,0,0,1,0,0))
+set.column(AirlineConnecting, 5, c(0,1,0,0,0,0,1,0))
+set.column(AirlineConnecting, 6, c(0,1,0,0,0,0,0,1))
+set.constr.type(AirlineConnecting, rep(&quot;&lt;=&quot;,8))
+set.rhs(AirlineConnecting, c(166,166,80,120,75,100,60,110))
+set.objfn(AirlineConnecting, c(428,190,642,224,512,190))
+lp.control(AirlineConnecting,sense='max')
+
+# 模型稍微有点大
+Model name: 
+        C1    C2    C3    C4    C5    C6         
+Maximize   428   190   642   224   512   190         
+R1           1     1     1     1     0     0  &lt;=  166
+R2           1     1     0     0     1     1  &lt;=  166
+R3           1     0     0     0     0     0  &lt;=   80
+R4           0     1     0     0     0     0  &lt;=  120
+R5           0     0     1     0     0     0  &lt;=   75
+R6           0     0     0     1     0     0  &lt;=  100
+R7           0     0     0     0     1     0  &lt;=   60
+R8           0     0     0     0     0     1  &lt;=  110
+Kind       Std   Std   Std   Std   Std   Std         
+Type      Real  Real  Real  Real  Real  Real         
+Upper      Inf   Inf   Inf   Inf   Inf   Inf         
+Lower        0     0     0     0     0     0
+
+solve(AirlineConnecting)
+get.objective(AirlineConnecting)
+get.variables(AirlineConnecting)
+</code></pre>
+
+                      
+                    </div>
+                    <div style="border: 1px dashed #e0e0e0; padding: 10px 10px 10px 10px; background-color: #fffeee; background-repeat: no-repeat; background-attachment: scroll; background-position: 1% 50%; -moz-background-size: auto auto; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
+
+                        <div>
+
+                            <br />本文出处：<a target="_blank" href="http://youngspring1.github.io/post/2016/2016-06-19-R08/">http://youngspring1.github.io/post/2016/2016-06-19-R08/</a>
+                            <br />
+                            文章版权归本人所有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。 </p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                  
+
+                </div>
+                
+              </article>
+              
+              <div class="clear"></div>
+              
+              
+              
+            </div>
+          </section>
+          <div class="sidebar s1">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>Follow:</p>
+      <ul class="social-links">
+    <li>
+    <a class="social-tooltip" title="On WeiBo"
+        href="http://weibo.com/youngspring1" target="_blank">
+        <i class="fa fa-weibo"></i>
+    </a>
+    </li>
+    <li>
+    <a class="social-tooltip" title="On Twitter" rel="nofollow"
+        href="https://twitter.com/" target="_blank">
+        <i class="fa fa-twitter"></i>
+    </a>
+    </li>
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/youngspring1" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+    </div>
+    <div class="widget qrcode">
+
+</div>
+
+    <ul class="post-nav group">
+      <li class="next">
+        
+        <a href="http://youngspring1.github.io/post/2016/2016-06-17-life/" rel="next">
+          <i class="fa fa-chevron-right"></i>
+          <strong>Next post</strong>
+          <span>乌托邦</span>
+        </a>
+        
+      </li>
+      <li class="previous">
+        
+        <a href="http://youngspring1.github.io/post/2016/2016-06-20-R09/" rel="prev">
+          <i class="fa fa-chevron-left"></i>
+          <strong>Previous Post</strong>
+          <span>MIT:The Analytics Edge 笔记09－整数优化</span>
+        </a>
+        
+      </li>
+    </ul>
+    <div id="search-2" class="widget widget_search"><h3>Search</h3>
+      <form method="get" class="searchform themeform" action="https://www.google.com/search">
+        <div>
+          <input type="text" class="search" name="q" placeholder="Press enter to start searching">
+        </div>
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+          <div class="sidebar s2">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="fa icon-sidebar-toggle"></i></a>
+  <div class="sidebar-content">
+    <div class="sidebar-top group">
+      <p>More</p>
+    </div>
+    <div id="categories-2" class="widget widget_categories"><h3>Categories</h3>
+      <ul>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="http://youngspring1.github.io/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="http://youngspring1.github.io/categories/%E8%AF%BB%E4%B9%A6/">读书</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="http://youngspring1.github.io/categories/%E6%96%B0%E7%9F%A5/">新知</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="http://youngspring1.github.io/categories/data.table%E6%95%99%E7%A8%8B/">data.table教程</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="http://youngspring1.github.io/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/">数据分析笔记</a>
+          </li>
+        
+          <li class="cat-item cat-item-1">
+            <a rel="nofollow" href="http://youngspring1.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">机器学习的数学基础</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="footer">
+  <section class="container" id="footer-bottom">
+    <div class="container-inner">
+      <a id="back-to-top" href="#"><i class="fa fa-angle-up"></i></a>
+      <div class="pad group">
+        <div class="grid one-half">
+          <div id="copyright">
+            <p>Copyright © 2016. All Rights Reserved. <br>Powered by
+              <a rel="nofollow" href="http://gohugo.io/" target="_blank">Hugo - the static site generator</a>.
+              <a rel="nofollow" href="http://golang.org" target="_blank">#golang</a>.
+            </p>
+          </div>
+          
+        </div>
+        
+        <div class="grid one-half last">
+          <ul class="social-links">
+    <li>
+    <a class="social-tooltip" title="On WeiBo"
+        href="http://weibo.com/youngspring1" target="_blank">
+        <i class="fa fa-weibo"></i>
+    </a>
+    </li>
+    <li>
+    <a class="social-tooltip" title="On Twitter" rel="nofollow"
+        href="https://twitter.com/" target="_blank">
+        <i class="fa fa-twitter"></i>
+    </a>
+    </li>
+    <li>
+    <a class="social-tooltip" title="On GitHub"
+        href="https://github.com/youngspring1" target="_blank">
+        <i class="fa fa-github"></i>
+    </a>
+    </li>
+</ul>
+
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+  
+</footer>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10147768-2', 'auto');
+  ga('send', 'pageview');
+
+  $('#messagesbsb').remove();
+
+</script>
+</body>
+</html>
+
